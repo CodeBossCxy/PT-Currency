@@ -7,13 +7,6 @@ import time
 import json
 import sys
 
-
-ERP_API_BASE = "https://Vintech-PT.on.plex.com/api/datasources/"
-headers = {
-  'Authorization': 'Basic VmludGVjaFBUV1NAcGxleC5jb206NDU2MDVjNS1mNDEyLTQ=',
-  'Content-Type': 'application/json'
-}
-
 # sys.stdout = open('output.txt', 'w', encoding='utf-8')
 
 def get_exchange_rate():
@@ -97,7 +90,7 @@ def get_exchange_rate():
             rate_text = None
             result_text = soup.find(string=re.compile(r"1\s*EUR\s*=\s*[0-9.,]+\s*USD"))
             search_text = soup.find(string=re.compile(r""))
-            print(soup)
+            # print(soup)
             if result_text:
                 rate_text = result_text.strip()
             else:
@@ -150,27 +143,12 @@ def get_eur_usd_rate(date_str):
         print(f"Could not find EUR→USD rate for {date_str}")
         return None
 
-def update_erp_data(rate):
-    database_id = "24134"
-    url = f"{ERP_API_BASE}{database_id}/execute"
-    payload = json.dumps({
-    "inputs": {
-        
-    }
-    })
-    print("[update_container_location] payload: ", payload)
-    response = requests.request("POST", url=url, headers=headers, data=payload)
-    print("[update_container_location] response: ", response.json())
-    return response.status_code == 200
-
 if __name__ == "__main__":
-    # with open('output.txt', 'w', encoding='utf-8') as f:
-    #     original_stdout = sys.stdout
-    #     sys.stdout = f
-    #     # All prints here go to the file
-    #     print("This will go to the file.")
-    #     # Call your function
-    #     get_exchange_rate()
-    #     sys.stdout = original_stdout  # Restore normal printing
-    rate = get_exchange_rate()
-    update_erp_data(rate)
+    # with open('output_1.txt', 'w', encoding='utf-8') as f:
+        # original_stdout = sys.stdout
+        # sys.stdout = f
+        # All prints here go to the file
+        # ("This will go to the file.")
+        # Call your function
+    get_eur_usd_rate("2025-05-22")
+        # sys.stdout = original_stdout  # Restore normal printing
