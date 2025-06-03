@@ -1,5 +1,7 @@
 This will go to the file.
 pt_rate:  0.8782715615668364
-cz_rate:  0.04016870857601928
-[update_container_location] response:  {'outputs': {'Currency_Exchange_Key': 150860, 'Error_Message': None}, 'tables': [], 'transactionNo': '1514'}
+cz_rate:  None
+[update_container_location] response:  {'outputs': {'Currency_Exchange_Key': 150861, 'Error_Message': None}, 'tables': [], 'transactionNo': '4'}
 True
+[update_container_location] response:  {'errors': [{'code': 'DATA_SOURCE_INPUT_NOT_NULLABLE', 'message': "Input 'Exchange_Rate' for data source 'Currency_Exchange_Add (Common)' does not allow null values."}], 'transactionNo': '1517'}
+False

@@ -200,6 +200,6 @@ if __name__ == "__main__":
         print("pt_rate: ", pt_rate)
         print("cz_rate: ", cz_rate)
         # print("mx_rate: ", mx_rate)
-        # print(update_erp_data(PT_headers, PT_ERP_API_BASE, dollar_key, pt_rate))
+        print(update_erp_data(PT_headers, PT_ERP_API_BASE, dollar_key, pt_rate))
         print(update_erp_data(CZ_headers, CZ_ERP_API_BASE, euro_key, cz_rate))
         sys.stdout = original_stdout  # Restore normal printing
