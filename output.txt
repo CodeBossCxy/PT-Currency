@@ -1,7 +1,9 @@
 This will go to the file.
 pt_rate:  0.8782715615668364
 cz_rate:  None
-[update_container_location] response:  {'outputs': {'Currency_Exchange_Key': 150861, 'Error_Message': None}, 'tables': [], 'transactionNo': '4'}
+[update_container_location] payload:  {"inputs": {"Add_By": 16746621, "Currency_Key": 1, "Date_Start": "2025-06-04T00:00:00.000Z", "Date_End": "2025-06-04T23:59:59.999Z", "Exchange_Rate": 0.8782715615668364}}
+[update_container_location] response:  {'outputs': {'Currency_Exchange_Key': None, 'Error_Message': 'Date range overlaps with another range'}, 'tables': [], 'transactionNo': '7'}
 True
-[update_container_location] response:  {'errors': [{'code': 'DATA_SOURCE_INPUT_NOT_NULLABLE', 'message': "Input 'Exchange_Rate' for data source 'Currency_Exchange_Add (Common)' does not allow null values."}], 'transactionNo': '1517'}
+[update_container_location] payload:  {"inputs": {"Add_By": 16746621, "Currency_Key": 2, "Date_Start": "2025-06-04T00:00:00.000Z", "Date_End": "2025-06-04T23:59:59.999Z", "Exchange_Rate": null}}
+[update_container_location] response:  {'errors': [{'code': 'DATA_SOURCE_INPUT_NOT_NULLABLE', 'message': "Input 'Exchange_Rate' for data source 'Currency_Exchange_Add (Common)' does not allow null values."}], 'transactionNo': '1520'}
 False

@@ -175,13 +175,14 @@ def update_erp_data(headers, ERP_API_BASE, key, rate):
     payload = json.dumps({
         "inputs": {
             "Add_By": 16746621,
+            "Currency_Exchange_Type_Key": 17,
             "Currency_Key": key,
             "Date_Start": start_iso,
             "Date_End": end_iso,
             "Exchange_Rate": rate
         }
     })
-    # print("[update_container_location] payload: ", payload)
+    print("[update_container_location] payload: ", payload)
     response = requests.request("POST", url=url, headers=headers, data=payload)
     print("[update_container_location] response: ", response.json())
     return response.status_code == 200
@@ -195,11 +196,11 @@ if __name__ == "__main__":
         print("This will go to the file.")
         # Call your function
         pt_rate = get_exchange_rate(PT_url, 'PT')
-        cz_rate = get_exchange_rate(CZ_url, 'CZ')
+        # cz_rate = get_exchange_rate(CZ_url, 'CZ')
         # mx_rate = get_exchange_rate(MX_url, 'MX')
         print("pt_rate: ", pt_rate)
-        print("cz_rate: ", cz_rate)
+        # print("cz_rate: ", cz_rate)
         # print("mx_rate: ", mx_rate)
         print(update_erp_data(PT_headers, PT_ERP_API_BASE, dollar_key, pt_rate))
-        print(update_erp_data(CZ_headers, CZ_ERP_API_BASE, euro_key, cz_rate))
+        # print(update_erp_data(CZ_headers, CZ_ERP_API_BASE, euro_key, cz_rate))
         sys.stdout = original_stdout  # Restore normal printing
