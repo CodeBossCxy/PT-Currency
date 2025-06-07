@@ -35,16 +35,18 @@ euro_key = 2
 
 # Start of today (UTC)
 start_time = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+start_time = start_time - timedelta(hours=1)
 
 # End of today (UTC)
-end_time = start_time + timedelta(days=1) - timedelta(milliseconds=1)
+# end_time = start_time + timedelta(days=1) - timedelta(milliseconds=1)
 
 # Format as ISO 8601 with milliseconds and Z
 start_iso = start_time.isoformat(timespec='milliseconds').replace('+00:00', 'Z')
-end_iso = end_time.isoformat(timespec='milliseconds').replace('+00:00', 'Z')
+# end_iso = end_time.isoformat(timespec='milliseconds').replace('+00:00', 'Z')
 
 print("Start of today:", start_iso)
-print("End of today:", end_iso)
+
+# print("End of today:", end_iso)
 sys.stdout = open('output.txt', 'w', encoding='utf-8')
 
 def get_exchange_rate(url, location):
@@ -178,7 +180,7 @@ def update_erp_data(headers, ERP_API_BASE, key, rate):
             "Currency_Exchange_Type_Key": 17,
             "Currency_Key": key,
             "Date_Start": start_iso,
-            "Date_End": end_iso,
+            "Date_End": start_iso,
             "Exchange_Rate": rate
         }
     })
