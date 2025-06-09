@@ -130,8 +130,8 @@ def find_rate_pt(html):
     
     if result_text:
         result_text = float(re.findall(r"=\s*([0-9.]+)\s*USD", str(result_text))[0])
-        rate = 1/result_text
-        return rate
+        # rate = 1/result_text
+        return result_text
     else:
         print("No EUR row found")
         return None
