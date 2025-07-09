@@ -35,9 +35,9 @@ euro_key = 2
 
 # Start of today (UTC)
 start_time = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
-start_time = start_time - timedelta(hours=1)
+start_time = start_time - timedelta(days=1, hours=1)
 
-# End of today (UTC)
+# End of today (UTC) 
 # end_time = start_time + timedelta(days=1) - timedelta(milliseconds=1)
 
 # Format as ISO 8601 with milliseconds and Z
